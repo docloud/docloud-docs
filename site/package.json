@@ -1,0 +1,35 @@
+{
+  "name": "docmanage",
+  "version": "1.0.0",
+  "description": "Doc Manage Project",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/docloud/docmanage.git"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "document"
+  ],
+  "bugs": {
+    "url": "https://github.com/docloud/docmanage/issue"
+  },
+  "author": "Yufei Li",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "jquery.cookie": "^1.4.1",
+    "bootstrap": "^3.3.5",
+    "handlebars": "^4.0.4"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.5"
+  }
+}
