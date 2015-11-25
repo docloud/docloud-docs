@@ -21,10 +21,15 @@ class Error(Exception):
     ARGUMENT_ERROR = 1
 
     " 1000 ~ fin User Error "
+    DOC_NOT_FOUND = 1000
+    DOC_EXISTED = 1001
 
     translate = {
-        BOOTSTRAP_ERROR: u'System Internal Error',
-        ARGUMENT_ERROR: u'Argument Error',
+        BOOTSTRAP_ERROR: u'系统内部错误',
+        ARGUMENT_ERROR: u'参数错误',
+
+        DOC_NOT_FOUND: u'文档不存在',
+        DOC_EXISTED: u'文档已存在'
     }
 
     def __init__(self, code=0, message=""):
