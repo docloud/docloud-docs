@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy import Integer, Column, Text, DateTime
+from sqlalchemy import Integer, Column, Text, DateTime, String
 from . import ModelBase, Session
 from sqlalchemy.orm.exc import NoResultFound
 from ..exceptions import Error
@@ -13,6 +13,7 @@ class Document(ModelBase):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     uid = Column(Integer)
+    doc_name = Column(String(45))
     text = Column(Text)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
@@ -20,6 +21,11 @@ class Document(ModelBase):
     @classmethod
     def get(cls, uid):
         return Session().query(cls).filter_by(uid=uid).all()
+
+    @classmethod
+    def get_content_by_doc_id(cls, doc_id):
+        doc = Session().query(cls).filter_by(id=doc_id).one()
+        return doc.text
 
     @classmethod
     def add(cls, doc_data):
@@ -44,9 +50,9 @@ class Document(ModelBase):
             raise Error(Error.DOC_NOT_FOUND)
 
     @classmethod
-    def update(cls, doc_id, text):
+    def update(cls, id, text):
         session = Session()
-        doc = session.query(cls).filter_by(id=doc_id)
+        doc = session.query(cls).filter_by(id=id)
         try:
             doc.one().text = text
             session.commit()

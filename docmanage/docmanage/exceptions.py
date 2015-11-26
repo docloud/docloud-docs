@@ -24,12 +24,16 @@ class Error(Exception):
     DOC_NOT_FOUND = 1000
     DOC_EXISTED = 1001
 
+    FILE_ILLEGAL = 1002
+
     translate = {
         BOOTSTRAP_ERROR: u'系统内部错误',
         ARGUMENT_ERROR: u'参数错误',
 
         DOC_NOT_FOUND: u'文档不存在',
-        DOC_EXISTED: u'文档已存在'
+        DOC_EXISTED: u'文档已存在',
+
+        FILE_ILLEGAL: u'文件不合法'
     }
 
     def __init__(self, code=0, message=""):

@@ -36,10 +36,13 @@ class User(UserMixin):
         self.load_user_from_token(token)
 
     def load_user_from_token(self, token):
-        user = requests.get('/sso/user', headers={'Authorization': token}).json()
-        if user.status_code == 200:
-            self.id = user.id
+        resp = requests.get('http://192.168.1.237:8001/sso/user',
+                            headers={'Authorization': token})
+        if resp.status_code == 200:
+            user = resp.json()
+            self.id = user.get("id")
 
+    @property
     def is_authenticated(self):
         return bool(self.id)
 
@@ -62,6 +65,9 @@ def load_user_from_request(request):
 
     if not token:
         token = request.cookies.get('Authorization')
+
+    if not token:
+        token = request.args.get('Authorization')
 
     if token:
         return User(token=token)
