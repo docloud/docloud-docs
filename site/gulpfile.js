@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 var browserify = require('gulp-browserify');
+var svg2png = require('gulp-svg2png');
 
 var lib = {
     jquery: './node_modules/jquery/dist/**',
@@ -19,7 +20,7 @@ var app_folder = {
 var site_dir = 'site';
 
 gulp.task('default', ['library', 'site']);
-gulp.task('site', ['html', 'app', 'static']);
+gulp.task('site', ['html', 'app', 'static', 'cherry']);
 
 /*
  站点第三方依赖库
@@ -80,6 +81,13 @@ gulp.task('static', function () {
     gulp.src('./src/static/**')
         .pipe(gulp.dest(site_dir))
 });
+
+gulp.task('svg', function () {
+    gulp.src('./src/static/**/*.svg')
+        .pipe(svg2png())
+        .pipe(gulp.dest(site_dir))
+});
+
 
 
 /*

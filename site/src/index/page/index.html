@@ -3,27 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
-    <title>文档管理中心</title>
+    <title>文档处理平台 | Docloud</title>
 </head>
 <body>
 
+<div id="nav">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#nav-index" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">
+                    <img class="logo-banner" src="images/luna_alpha.png">
+                </span>
+            </div>
+            <div class="collapse navbar-collapse" id="nav-index">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a target="_blank" href="//github.com/docloud">
+                            <i class="fa fa-github"></i>
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#download">
+                            <i class="fa fa-download"></i>
+                            Download
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="//139.196.37.224/docloud/docmanage.html">
+                            <i class="fa fa-globe"></i>
+                            Visit
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
-<div class="navigation">
-    <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav pull-left">
-            <ul><img class="logo-banner" src="images/doc_alpha.svg"></ul>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-            <li>Github</li>
-            <li>Download</li>
-            <li>Visit</li>
-        </ul>
+<div id="banner">
+    <div class="container-fluid full banner">
+        <div class="row">
+            <h1>文档处理平台</h1>
+
+            <div id="typed-strings" hidden>
+                <h2>“电子读写方式必将深刻改变人类的生活。” </h2>
+
+                <h4>—— Docloud Team</h4>
+            </div>
+            <div class="typed"></div>
+        </div>
+        <div class="row">
+            <a class="btn btn-lg btn-success" target="_blank" href="//github.com/docloud">
+                <i class="fa fa-github fa-fw"> </i>
+                <span>View on Github</span>
+            </a>
+            <a class="btn btn-lg btn-success" target="_blank"
+               href="//139.196.37.224/docloud/docmanage.html">
+                <i class="fa fa-internet-explorer fa-fw"> </i>
+                <span>Online site</span>
+            </a>
+        </div>
     </div>
 </div>
 
-<div class="full"></div>
+<div id="download">
+    <div class="container-fluid full banner">
+        <div>
+            <h2>客户端</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <div class="row">
+                        <i class="fa fa-globe fa-5x"></i>
+                    </div>
+                    <div class="row">
+                        <h3>Browser</h3>
+                        <a class="btn btn-success" target="_blank"
+                           href="//139.196.37.224/docloud/docmanage.html">
+                            <i class="fa fa-mouse-pointer"> </i>
+                            访问
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <div class="row">
+                        <i class="fa fa-desktop fa-5x"></i>
+                    </div>
+                    <div class="row">
+                        <h3>Mac OSX</h3>
+                        <button class="btn" disabled>等待发布</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <div class="row">
+                        <i class="fa fa-windows fa-5x"></i>
+                    </div>
+                    <div class="row">
+                        <h3>Windows</h3>
+                        <button class="btn" disabled>等待发布</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
 
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <div class="row">
+                        <i class="fa fa-android fa-5x"></i>
+                    </div>
+                    <div class="row">
+                        <h3>Android</h3>
+                        <button class="btn" disabled>等待发布</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <div class="row">
+                        <i class="fa fa-apple fa-5x"></i>
+                    </div>
+                    <div class="row">
+                        <h3>IOS</h3>
+                        <button class="btn" disabled>等待发布</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="feature">
+    <div class="container-fluid full banner">
+        <div class="row">
+            <h2>功能特性</h2>
+        </div>
+        <div class="col-md-4">
+            <div class="logo-container">
+                <figure>
+                    <img src="images/mail.svg">
+                    <figcaption>
+                        <h4>转换Markdown为23种目标格式</h4>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="logo-container">
+                <figure>
+                    <img src="images/retina.svg">
+                    <figcaption>
+                        <h4>单点登录</h4>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="logo-container">
+                <figure>
+                    <img src="images/map.svg">
+                    <figcaption>
+                        <h4>借助浏览器内核实现全平台接入</h4>
+
+                        <p>正在部署</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="introduction">
+    <div class="container-fluid full banner">
+        <div class="row">
+            <h2>项目组织架构</h2>
+        </div>
+        <div class="row">
+            <h3>服务框架</h3>
+
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <a target="_blank" href="//github.com/docloud/luna">
+                        <figure>
+                            <img src="images/luna_alpha_lg.png">
+                            <figcaption>后端框架</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <a target="_blank" href="//github.com/docloud/cherry">
+                        <figure>
+                            <img src="images/cherry_alpha_lg.png">
+                            <figcaption>前端框架</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <a target="_blank" href="//github.com/docloud/jenny">
+                        <figure>
+                            <img src="images/jenny_alpha_lg.png">
+                            <figcaption>文档转换/编译库</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>应用程序</h3>
+
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <a target="_blank" href="//github.com/docloud/docmanage">
+                        <figure>
+                            <img src="images/doc_logo_lg.png">
+                            <figcaption>文档处理中心</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo-container">
+                    <a target="_blank" href="//github.com/docloud/sso">
+                        <figure>
+                            <img src="images/sso_lg.png">
+                            <figcaption>统一身份认证</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="application/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="js/typed.min.js"></script>
+
+<script>
+    $(function () {
+        var content = $("#typed-strings").html();
+        $(".typed").typed({
+            strings: [content],
+            typeSpeed: 50,
+            loop: true
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -2,30 +2,119 @@
  Copyright 2015 SSO Project
 */
 
+* {
+    font-family: Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
 html, body {
     height: 100%;
 }
 
+a, button {
+    transition: all .25s ease-in;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar {
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.navbar a {
+    font-size: large;
+    color: black;
+}
+
+.navbar-default {
+    border-bottom: none;
+    background-color: white;
+}
+
+.navbar a, button {
+    margin-top: 10px;
+}
+
+.navbar-toggle {
+    margin-top: 18px;
+}
+
+/*
+ Typed.js
+*/
+
+.typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*
+ Docmanage
+ */
+
 .banner {
+    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     min-height: 100%;
+    text-align: center;
+
+    position: relative;
 }
 
-.navigation {
-    border-bottom: 1px solid #efefef;
-    padding: 10px;
+.banner .btn span {
+    vertical-align: middle;
 }
 
-.navigation li {
-    font-family: Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;;
-    font-size: large;
-    padding-left: 20px;
-    padding-right: 20px;
+.banner h2 {
+    margin-bottom: 5%;
 }
 
-.navigation li a {
-    color: #555;
+.full {
+    padding-top: 10%;
 }
 
 ul {
@@ -45,15 +134,103 @@ ul {
     color: black;
 }
 
-.footer {
+#background {
+    left: 0;
+    right: 0;
     width: 100%;
-    bottom: 0;
-    position: absolute;
-    text-align: center;
-    border-top: 1px solid #efefef;
+    height: 100%;
+    min-height: 100%;
+    /*background-image: url(../images/pure_blue.jpg);*/
+    background-size: cover;
+
+    position: fixed;
+    z-index: -100;
+
+    /*
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -o-filter: blur(10px);
+    filter: blur(10px);
+
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+    */
 }
 
 #dashboard {
     margin-top: 20px;
 }
 
+#dashboard:last-child {
+    overflow:auto;
+    padding-bottom: 60px;
+}
+
+.screen {
+    min-height: 100%;
+}
+
+.footer {
+    margin-top: -60px;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #efefef;
+    padding-top: 20px;
+}
+
+.doc-detail {
+    font-size: large;
+}
+
+.logo-container {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    vertical-align: middle;
+}
+
+.typed {
+    min-height: 150px;
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+
+#nav {
+    border-bottom: 1px solid #efefef;
+}
+
+#banner {
+    text-align: center;
+    min-height: 100%;
+    color: whitesmoke;
+    background-image: url(../images/banner1.jpg);
+    background-size: cover;
+}
+
+#download {
+    min-height: 100%;
+    color: black;
+}
+
+#feature {
+    min-height: 100%;
+    color: black;
+    background-color: whitesmoke;
+    background-size: cover;
+}
+
+#introduction {
+    min-height: 100%;
+    color: whitesmoke;
+    background-color: #262626;
+    background-size: cover;
+}
+
+#introduction a {
+    color: whitesmoke;
+    text-decoration: none;
+}

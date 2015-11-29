@@ -1,0 +1,49 @@
+<script id="upload-page" type="text/x-handlebars-template">
+
+    <form action="{{_environ.services.docmanage}}/doc/upload" method="post"
+          class="form-horizontal" enctype="multipart/form-data" onsubmit="return false;">
+        <fieldset>
+            <div id="legend" class="page-header">
+                <h2>上传文档</h2>
+            </div>
+
+            <div class="control-group">
+
+                <!-- Select Basic -->
+                <label class="control-label">文件格式</label>
+
+                <div class="controls">
+                    <select class="input-xlarge form-control" disabled>
+                        <option>Markdown</option>
+                    </select>
+
+                    <p class="help-block">当前仅支持 Markdown</p>
+                </div>
+
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="fileInput">文本文件</label>
+
+                <!-- File Upload -->
+                <div class="controls">
+                    <input class="input-file form-control" id="fileInput" type="file" name="file">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <!--<div class="controls">-->
+        <!--<button class="btn btn-default" data-state="docs">返回</button>-->
+    <!--</div>-->
+
+</script>

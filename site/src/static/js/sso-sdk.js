@@ -6,8 +6,8 @@
     var defaultConfig = {
         user: null,
         token: null,
-        sso_service: 'http://127.0.0.1:8001',
-        sso_url: 'http://127.0.0.1:3001'
+        sso_service: null,
+        sso_url: null
     };
     $.sso = $.extend({}, defaultConfig);
 
@@ -25,8 +25,9 @@
         $.sso = $.extend($.sso, config);
     };
 
-    var init = function () {
+    var init = function (config) {
         $.sso.token = $.urlParam("token");
+        setup(config);
         if ($.sso.token == null) {
             window.location.href = $.sso.sso_url;
         } else {
@@ -61,10 +62,15 @@
         });
     };
 
+    var go_sso = function() {
+        window.location.href = $.sso.sso_url;
+    };
+
     $.sso = $.extend({
         setup: setup,
         init: init,
         login: login,
-        load_user: load_user
+        load_user: load_user,
+        go: go_sso
     }, $.sso);
 })(jQuery);

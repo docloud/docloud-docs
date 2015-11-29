@@ -4,6 +4,18 @@
 
 var Handlebars = require("handlebars");
 
+Handlebars.registerHelper('stringify', function (obj) {
+    return JSON.stringify(obj);
+});
+
+Handlebars.registerHelper('parse', function (obj) {
+    return JSON.parse(obj);
+});
+
+Handlebars.registerHelper('slice', function (str, n) {
+    return str.slice(n);
+});
+
 (function ($) {
     var compile_template = function (selector, context) {
         context._environ = $.cherry.environ;
@@ -12,16 +24,19 @@ var Handlebars = require("handlebars");
         return template(context);
     };
 
-    var switch_page = function (selector, container, context) {
-        var html = compile_template(selector, $.extend({}, context));
+    var switch_page = function (selector, context, container) {
+        //context = (context == undefined) ? {} : JSON.parse(context);
         container = (container == undefined) ? $.cherry.environ.dash : container;
-        $(container).fadeOut("fast").html(html).fadeIn("fast");
+        var html = compile_template(selector, $.extend({}, context));
+        $(container).hide();
+        $(container).html(html).slideDown("fast");
     };
 
     var set_state = function (state, context) {
         if (context == undefined) {
             $.cherry.state[state]();
         } else {
+            //context = JSON.parse(context);
             $.cherry.state[state](context);
         }
     };
@@ -40,7 +55,12 @@ var Handlebars = require("handlebars");
     };
 
     $.cherry.default.state = {
-        done: function(data) {
+        loading: function () {
+            var html = '<div style="background-color: rgba(234, 234, 234, 0.8);">';
+            html += '<i class="fa fa fa-spinner fa-pulse center-block"> </i>';
+            $(body).append('');
+        },
+        done: function (data) {
             alert("提交成功");
         },
         error: function (data) {
@@ -49,7 +69,7 @@ var Handlebars = require("handlebars");
     };
 
     $.fn.switch_page = function (selector, context) {
-        $.cherry.switch_page(selector, $(this), context);
+        $.cherry.switch_page(selector, context, $(this));
     };
 
     $.cherry.setup = function (environ, state) {
@@ -59,27 +79,49 @@ var Handlebars = require("handlebars");
         /*
          Bind event to form.
          */
-        $("body").on("click", "[type=submit]", function () {
-            var form = $(this).parents("form");
-            var action = form.attr("action");
-            var method = form.attr("method");
+        $("body").on("submit", "form", function (event) {
+            event.preventDefault();
 
-            var button = $(this);
-            var done = button.data("done");
-            done = (done == undefined) ? "done" : done;
-            var error = button.data("error");
-            error = (error == undefined) ? "error" : error;
+            console.log(event);
 
-            $.ajax({
-                url: action,
-                type: method,
-                async: false,
-                data: form.serialize()
-            }).done(
-                state[done]
-            ).error(
-                state[error]
-            );
+            var form = $(this);
+            console.log(form.data("submit"));
+            if (form.data("submit") != undefined) {
+                this.submit();
+            } else {
+                var action = form.attr("action");
+                var method = form.attr("method");
+                var enctype = form.attr("enctype");
+
+                var button = $(this);
+                var done = button.data("done");
+                done = (done == undefined) ? "done" : done;
+                var error = button.data("error");
+                error = (error == undefined) ? "error" : error;
+
+                var args = {
+                    url: action,
+                    type: method,
+                    dataType: "JSON",
+                    async: false,
+                    headers: {
+                        Authorization: $.sso.token
+                    },
+                    data: new FormData(this),
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false
+                };
+
+                //if (enctype != undefined) {
+                //    args.enctype = enctype;
+                //}
+
+                $.ajax(args).done(
+                    $.cherry.state[done]
+                ).error(
+                    state[error]
+                );
+            }
         });
 
         /*

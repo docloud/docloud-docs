@@ -1,0 +1,52 @@
+<script id="doc-page" type="text/x-handlebars-template">
+    <div class="col-md-10 col-md-offset-1 doc-detail">
+        <div class="row page-header">
+            <h1>文档详情阅览</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <p>ID</p>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <p>{{id}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <p>文件名</p>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <p>{{doc_name}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <p>创建时间</p>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <p>{{created_at}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <p>更新时间</p>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <p>{{updated_at}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>文本</h3>
+                </div>
+                <div class="panel-body">
+                    <pre><code>{{text}}</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-success" data-state="docs">返回</button>
+        </div>
+    </div>
+</script>

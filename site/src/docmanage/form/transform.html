@@ -1,0 +1,58 @@
+<script id="transform-page" type="text/x-handlebars-template">
+
+    <form action="{{_environ.services.docmanage}}/doc/transform" method="get" class="form-horizontal"
+          data-submit>
+        <fieldset>
+            <div id="legend" class="page-header">
+                <h2>文档处理</h2>
+            </div>
+            <div class="control-group">
+
+                <input name="id" value="{{id}}" type="hidden">
+                <input name="Authorization" value="{{_environ.sso.token}}" type="hidden">
+
+                <!-- Select Basic -->
+                <label class="control-label" for="output_format">输出格式</label>
+                <div class="controls">
+                    <select id="output_format" name="out_format" class="input-xlarge form-control">
+                        <option value="context">Context</option>
+                        <option value="docbook">DocBook</option>
+                        <option value="epub">Epub</option>
+                        <option value="html">HTML</option>
+                        <option value="html+lhs">HTML+LHS</option>
+                        <option value="latex">LaTex</option>
+                        <option value="latex+lhs">LaTex+LHS</option>
+                        <option value="man">Man</option>
+                        <option value="markdown">Markdown</option>
+                        <option value="markdown+lhs">Markdown+LHS</option>
+                        <option value="mediawiki">MediaWiki</option>
+                        <option value="native">Native</option>
+                        <option value="odt">ODT</option>
+                        <option value="opendocument">OpenDocument</option>
+                        <option value="plain">Plain</option>
+                        <option value="rst">reStructureText</option>
+                        <option value="rst+lhs">reStructureText+LHS</option>
+                        <option value="rtf">RTF</option>
+                        <option value="s5">S5</option>
+                        <option value="slidy">Slidy</option>
+                        <option value="texinfo">TexInfo</option>
+                    </select>
+                </div>
+
+            </div>
+        </fieldset>
+
+        <hr>
+
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">提交</button>
+            </div>
+        </div>
+    </form>
+
+    <!--<div class="controls">-->
+        <!--<button class="btn btn-default" data-state="docs">返回</button>-->
+    <!--</div>-->
+
+</script>

@@ -1,0 +1,39 @@
+<script id="docs-page" type="text/x-handlebars-template">
+    <div>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>文件名</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.doc_name}}</td>
+                <td>{{this.created_at}}</td>
+                <td>{{this.updated_at}}</td>
+                <td>
+                    <button class="btn btn-default" data-pages="#doc-page" data-context="{{stringify this}}">
+                        <i class="glyphicon glyphicon-eye-open"> </i> 查看
+                    </button>
+                    <button class="btn btn-success" disabled>
+                        <i class="glyphicon glyphicon-refresh"> </i> 更新
+                    </button>
+                    <button class="btn btn-primary" data-pages="#transform-page" data-context="{{stringify this}}">
+                        <i class="glyphicon glyphicon-transfer"></i> 转换
+                    </button>
+                    <button class="btn btn-danger" data-state="delete" data-context="{{stringify this}}">
+                        <i class="glyphicon glyphicon-calendar"> </i> 删除
+                    </button>
+                </td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</script>
