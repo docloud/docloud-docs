@@ -2,22 +2,25 @@ id: 6g245mu7
 name: docmanage
 app:
   host: 0.0.0.0
-  port: 3000
+  port: 8002
   debug: false
+deploy:
+  host: 139.196.37.224
+  port: 8002
 databases:
   mongo:
-    alias: mongodb
+    dialect: mongodb
     host: 127.0.0.1
     port: 27017
     username: root
     password: ""
     database: test
   mysql:
-    alias: mysql
+    dialect: mysql
     host: 127.0.0.1
     port: 3306
     username: root
-    password: "+"
+    password: ""
     database: docloud
 celery:
   worker: 4

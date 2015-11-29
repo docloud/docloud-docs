@@ -71,11 +71,7 @@ class Doc(View):
         up_file = request.files['file']
         if up_file and Doc.allowed_file(up_file.filename):
             uid = current_user.id
-            # filename = secure_filename(up_file.filename)
-            # print(filename)
             text = up_file.read()
-            print(up_file.filename)
-            print(text)
             Document.add({'uid': uid, 'doc_name': up_file.filename, 'text': text})
         else:
             raise Error(Error.FILE_ILLEGAL)

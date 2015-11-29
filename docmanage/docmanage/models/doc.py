@@ -2,7 +2,7 @@
 
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import Integer, Column, Text, DateTime, String
-from . import ModelBase, Session
+from . import ModelBase, session
 from sqlalchemy.orm.exc import NoResultFound
 from ..exceptions import Error
 from datetime import datetime
@@ -20,17 +20,16 @@ class Document(ModelBase):
 
     @classmethod
     def get(cls, uid):
-        return Session().query(cls).filter_by(uid=uid).all()
+        return cls.query.filter_by(uid=uid).all()
 
     @classmethod
     def get_content_by_doc_id(cls, doc_id):
-        doc = Session().query(cls).filter_by(id=doc_id).one()
+        doc = cls.query.filter_by(id=doc_id).one()
         return doc.text
 
     @classmethod
     def add(cls, doc_data):
         doc = cls(**doc_data)
-        session = Session()
         session.add(doc)
         try:
             session.commit()
@@ -41,8 +40,7 @@ class Document(ModelBase):
 
     @classmethod
     def delete(cls, doc_id):
-        session = Session()
-        doc = session.query(cls).filter_by(id=doc_id)
+        doc = cls.query.filter_by(id=doc_id)
         if doc.first():
             doc.delete()
             session.commit()
@@ -51,8 +49,7 @@ class Document(ModelBase):
 
     @classmethod
     def update(cls, id, text):
-        session = Session()
-        doc = session.query(cls).filter_by(id=id)
+        doc = session.query.filter_by(id=id)
         try:
             doc.one().text = text
             session.commit()

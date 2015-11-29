@@ -36,7 +36,7 @@ class User(UserMixin):
         self.load_user_from_token(token)
 
     def load_user_from_token(self, token):
-        resp = requests.get('http://192.168.1.237:8001/sso/user',
+        resp = requests.get('http://127.0.0.1:8001/sso/user',
                             headers={'Authorization': token})
         if resp.status_code == 200:
             user = resp.json()

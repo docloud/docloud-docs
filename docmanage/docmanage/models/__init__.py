@@ -4,9 +4,8 @@
 Copyright 2015 docmanage
 """
 
-from luna.models import db
+from luna.models import db, rsdb
 
-mysql = db.get("mysql")
-engine = mysql.get("engine")
-Session = mysql.get("session")
-ModelBase = mysql.get("base")
+if rsdb:
+    session = rsdb.session
+    ModelBase = rsdb.Model
